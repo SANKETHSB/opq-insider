@@ -235,7 +235,7 @@ export default function RegisterForm() {
 
           <Button
             type="submit"
-            className="w-full py-5"
+            className="w-full py-5 btn-gradient text-white"
             disabled={isLoading}
           >
             {isLoading ? "Creating Account..." : "Create Account"}

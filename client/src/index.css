@@ -75,9 +75,28 @@
 }
 
 .auth-container {
-  background-image: url('https://images.unsplash.com/photo-1557683311-eac922347aa1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1429&h=800&q=80');
+  background-color: #05377f;
+  background-image: linear-gradient(135deg, #05377f 0%, #0a4ca7 100%);
   background-size: cover;
   background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  z-index: 0;
+}
+
+/* Logo filters */
+.logo-white {
+  filter: brightness(0) invert(1);
 }
 
 /* Other animation classes */
@@ -119,4 +138,58 @@
 @keyframes slideUp {
   0% { transform: translateY(20px); opacity: 0; }
   100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Button enhancements */
+.btn-gradient {
+  background: linear-gradient(90deg, #05377f 0%, #0a4ca7 100%);
+  transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(90deg, #0a4ca7 0%, #05377f 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(5, 55, 127, 0.2);
+}
+
+/* Form input enhancements */
+.input-enhanced {
+  transition: all 0.2s ease;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.input-enhanced:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  border-color: var(--primary);
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Pulse animation for CTA elements */
+.pulse-effect {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(5, 55, 127, 0.4);
+  }
+  70% {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 10px rgba(5, 55, 127, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(5, 55, 127, 0);
+  }
 }

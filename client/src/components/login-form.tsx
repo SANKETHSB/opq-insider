@@ -103,7 +103,7 @@ export default function LoginForm() {
                     <FiMail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
                     <Input 
                       placeholder="your.email@example.com" 
-                      className="pl-10" 
+                      className="pl-10 input-enhanced" 
                       {...field} 
                     />
                   </div>
@@ -149,7 +149,7 @@ export default function LoginForm() {
 
           <Button
             type="submit"
-            className="w-full py-5"
+            className="w-full py-5 btn-gradient text-white"
             disabled={isLoading}
           >
             {isLoading ? "Signing in..." : "Sign in"}

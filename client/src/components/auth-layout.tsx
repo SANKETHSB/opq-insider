@@ -18,7 +18,7 @@ export default function AuthLayout({ children }: PropsWithChildren) {
             <img 
               src={opqLogo} 
               alt="OPQ Bootcamp" 
-              className="h-16 w-auto"
+              className="h-16 w-auto logo-white"
             />
           </motion.div>
           
