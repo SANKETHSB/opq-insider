@@ -75,10 +75,10 @@ export default function LoginForm() {
         <Button
           type="button"
           variant="outline"
-          className="w-full flex items-center justify-center py-5 px-4"
+          className="w-full flex items-center justify-center py-5 px-4 card-hover border-2 font-medium"
           onClick={handleGoogleLogin}
         >
-          <FcGoogle className="w-5 h-5 mr-3" />
+          <FcGoogle className="w-6 h-6 mr-3" />
           <span>Continue with Google</span>
         </Button>
       </div>
@@ -130,7 +130,7 @@ export default function LoginForm() {
                     <Input 
                       type="password" 
                       placeholder="••••••••" 
-                      className="pl-10" 
+                      className="pl-10 input-enhanced" 
                       {...field} 
                     />
                   </div>

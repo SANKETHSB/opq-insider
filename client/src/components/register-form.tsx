@@ -87,10 +87,10 @@ export default function RegisterForm() {
         <Button
           type="button"
           variant="outline"
-          className="w-full flex items-center justify-center py-5 px-4"
+          className="w-full flex items-center justify-center py-5 px-4 card-hover border-2 font-medium"
           onClick={handleGoogleRegistration}
         >
-          <FcGoogle className="w-5 h-5 mr-3" />
+          <FcGoogle className="w-6 h-6 mr-3" />
           <span>Register with Google</span>
         </Button>
       </div>
@@ -112,7 +112,7 @@ export default function RegisterForm() {
                 <FormItem>
                   <FormLabel>Full Name</FormLabel>
                   <FormControl>
-                    <Input placeholder="John Doe" {...field} />
+                    <Input placeholder="John Doe" className="input-enhanced" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -126,7 +126,7 @@ export default function RegisterForm() {
                 <FormItem>
                   <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input placeholder="your.email@example.com" {...field} />
+                    <Input placeholder="your.email@example.com" className="input-enhanced" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -142,7 +142,7 @@ export default function RegisterForm() {
                 <FormItem>
                   <FormLabel>Phone Number</FormLabel>
                   <FormControl>
-                    <Input placeholder="+1 (123) 456-7890" {...field} />
+                    <Input placeholder="+1 (123) 456-7890" className="input-enhanced" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -156,7 +156,7 @@ export default function RegisterForm() {
                 <FormItem>
                   <FormLabel>College Name</FormLabel>
                   <FormControl>
-                    <Input placeholder="University of Example" {...field} />
+                    <Input placeholder="University of Example" className="input-enhanced" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -176,7 +176,7 @@ export default function RegisterForm() {
                     defaultValue={field.value}
                   >
                     <FormControl>
-                      <SelectTrigger>
+                      <SelectTrigger className="input-enhanced">
                         <SelectValue placeholder="Select your year" />
                       </SelectTrigger>
                     </FormControl>
@@ -201,7 +201,7 @@ export default function RegisterForm() {
                 <FormItem>
                   <FormLabel>Location</FormLabel>
                   <FormControl>
-                    <Input placeholder="City, Country" {...field} />
+                    <Input placeholder="City, Country" className="input-enhanced" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -216,7 +216,7 @@ export default function RegisterForm() {
               <FormItem>
                 <FormLabel>Password</FormLabel>
                 <FormControl>
-                  <Input type="password" placeholder="••••••••" {...field} />
+                  <Input type="password" placeholder="••••••••" className="input-enhanced" {...field} />
                 </FormControl>
                 <FormDescription className="text-xs">
                   Must be at least 6 characters long
