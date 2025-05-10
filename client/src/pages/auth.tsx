@@ -24,6 +24,9 @@ export default function Auth() {
       }
     }
   }, [user, isLoading, setLocation]);
+  
+  // Create a safe user object to prevent TypeScript errors
+  const safeUser = user || { role: "" };
 
   const handleConsoleChange = (type: ConsoleType) => {
     setConsoleType(type);

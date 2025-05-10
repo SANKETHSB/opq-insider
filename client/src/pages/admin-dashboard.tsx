@@ -43,6 +43,9 @@ export default function AdminDashboard() {
   if (!user || user.role !== UserRole.ADMIN) {
     return null; // Will redirect due to useEffect
   }
+  
+  // Create a safe user object to prevent TypeScript errors
+  const safeUser = user || { name: "", profileImageUrl: "", role: "" };
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
@@ -58,18 +61,18 @@ export default function AdminDashboard() {
             </div>
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2">
-                {user.profileImageUrl ? (
+                {safeUser.profileImageUrl ? (
                   <img 
-                    src={user.profileImageUrl} 
-                    alt={user.name} 
+                    src={safeUser.profileImageUrl} 
+                    alt={safeUser.name} 
                     className="h-8 w-8 rounded-full object-cover"
                   />
                 ) : (
                   <div className="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center text-primary">
-                    {user.name.charAt(0)}
+                    {safeUser.name.charAt(0) || "A"}
                   </div>
                 )}
-                <span className="font-medium">{user.name}</span>
+                <span className="font-medium">{safeUser.name}</span>
               </div>
               <Button variant="outline" onClick={handleLogout}>Logout</Button>
             </div>
@@ -99,7 +102,7 @@ export default function AdminDashboard() {
                 <CardTitle className="text-sm font-medium text-muted-foreground">Administrator</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">{user.name}</div>
+                <div className="text-2xl font-bold">{safeUser.name}</div>
                 <p className="text-xs text-muted-foreground mt-1">
                   You have admin access to the system
                 </p>
