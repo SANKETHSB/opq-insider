@@ -1,5 +1,6 @@
 import { PropsWithChildren } from "react";
 import { motion } from "framer-motion";
+import opqLogo from "../assets/opq-logo.png";
 
 export default function AuthLayout({ children }: PropsWithChildren) {
   return (
@@ -9,19 +10,16 @@ export default function AuthLayout({ children }: PropsWithChildren) {
         <div className="z-10 relative">
           {/* Logo Section */}
           <motion.div 
-            className="flex items-center space-x-2 mb-16"
+            className="flex items-center mb-16"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
           >
-            <svg
-              viewBox="0 0 24 24"
-              className="h-12 w-12 text-white"
-              fill="currentColor"
-            >
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-            </svg>
-            <span className="text-xl font-bold">OPQInsider</span>
+            <img 
+              src={opqLogo} 
+              alt="OPQ Bootcamp" 
+              className="h-16 w-auto"
+            />
           </motion.div>
           
           {/* Content */}

@@ -3,6 +3,7 @@ import { useLocation } from "wouter";
 import AuthLayout from "@/components/auth-layout";
 import AuthForm from "@/components/auth-form";
 import { useAuth } from "@/hooks/use-auth";
+import opqLogo from "../assets/opq-logo.png";
 
 type ConsoleType = "student" | "admin";
 type AuthMode = "login" | "register";
@@ -44,15 +45,12 @@ export default function Auth() {
     <AuthLayout>
       <div className="w-full max-w-md">
         {/* Mobile Logo */}
-        <div className="flex items-center justify-center space-x-2 mb-8 md:hidden">
-          <svg
-            viewBox="0 0 24 24"
-            className="h-10 w-10 text-primary"
-            fill="currentColor"
-          >
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-          </svg>
-          <span className="text-xl font-bold text-primary">OPQInsider</span>
+        <div className="flex items-center justify-center mb-8 md:hidden">
+          <img 
+            src={opqLogo} 
+            alt="OPQ Bootcamp" 
+            className="h-12 w-auto"
+          />
         </div>
 
         {/* Console Type Tabs */}
