@@ -4,6 +4,7 @@ import { useAuth } from "@/hooks/use-auth";
 import { Button } from "@/components/ui/button";
 import { apiRequest } from "@/lib/queryClient";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import opqLogo from "../assets/opq-logo.png";
 
 export default function Dashboard() {
   const { user, isLoading } = useAuth();
@@ -15,6 +16,9 @@ export default function Dashboard() {
       setLocation("/auth");
     }
   }, [user, isLoading, setLocation]);
+  
+  // Create a safe user object to prevent TypeScript errors
+  const safeUser = user || { name: "", profileImageUrl: "" };
 
   const handleLogout = async () => {
     try {
@@ -42,30 +46,27 @@ export default function Dashboard() {
       <header className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
-            <div className="flex items-center gap-2">
-              <svg
-                viewBox="0 0 24 24"
-                className="h-8 w-8 text-primary"
-                fill="currentColor"
-              >
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-              </svg>
-              <span className="font-bold text-xl">OPQInsider</span>
+            <div className="flex items-center">
+              <img 
+                src={opqLogo} 
+                alt="OPQ Bootcamp" 
+                className="h-10 w-auto"
+              />
             </div>
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2">
-                {user.profileImageUrl ? (
+                {safeUser.profileImageUrl ? (
                   <img 
-                    src={user.profileImageUrl} 
-                    alt={user.name} 
+                    src={safeUser.profileImageUrl} 
+                    alt={safeUser.name} 
                     className="h-8 w-8 rounded-full object-cover"
                   />
                 ) : (
                   <div className="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center text-primary">
-                    {user.name.charAt(0)}
+                    {safeUser.name.charAt(0) || "U"}
                   </div>
                 )}
-                <span className="font-medium">{user.name}</span>
+                <span className="font-medium">{safeUser.name}</span>
               </div>
               <Button variant="outline" onClick={handleLogout}>Logout</Button>
             </div>
@@ -83,7 +84,7 @@ export default function Dashboard() {
                 <CardTitle className="text-sm font-medium text-muted-foreground">Welcome</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">{user.name}</div>
+                <div className="text-2xl font-bold">{safeUser.name}</div>
                 <p className="text-xs text-muted-foreground mt-1">
                   You are logged in as a student
                 </p>

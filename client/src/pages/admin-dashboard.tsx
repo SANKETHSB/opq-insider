@@ -6,6 +6,7 @@ import { apiRequest } from "@/lib/queryClient";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { UserRole } from "@/lib/constants";
+import opqLogo from "../assets/opq-logo.png";
 
 export default function AdminDashboard() {
   const { user, isLoading } = useAuth();
@@ -48,15 +49,12 @@ export default function AdminDashboard() {
       <header className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
-            <div className="flex items-center gap-2">
-              <svg
-                viewBox="0 0 24 24"
-                className="h-8 w-8 text-primary"
-                fill="currentColor"
-              >
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-              </svg>
-              <span className="font-bold text-xl">OPQInsider</span>
+            <div className="flex items-center">
+              <img 
+                src={opqLogo} 
+                alt="OPQ Bootcamp" 
+                className="h-10 w-auto"
+              />
             </div>
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2">
